@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Button,
-         ControlLabel,
-         FormControl,
-         Modal } from 'react-bootstrap';
+  ControlLabel,
+  FormControl,
+  Modal } from 'react-bootstrap';
 import _ from 'underscore';
 
 //----------------------Join Filter----------------------//
@@ -43,12 +43,13 @@ class JoinFilter extends Component {
         // Set a default if user has never selected a table filter for this table
         selectedTable = filtertableTableNames[0];
       }
-
-      filterableColumnMapOptions = filterableColumnMap[selectedTable].map(option =>
-        <option value={option}>
-          {option}
-        </option>
-      );
+      if (filterableColumnMap[selectedTable]) {
+        filterableColumnMapOptions = filterableColumnMap[selectedTable].map(option =>
+          <option value={option}>
+            {option}
+          </option>
+        );
+      }
 
       fkMapOptions = this.props.tableColumns.map(option =>
         <option value={option.id}>
@@ -137,7 +138,7 @@ class JoinFilter extends Component {
               style={{ marginLeft: '4px' }}
               bsStyle="success"
             >
-                Filtered Fetch
+              Filtered Fetch
             </Button>
           </Modal.Footer>
         </Modal> :
