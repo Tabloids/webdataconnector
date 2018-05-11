@@ -139,7 +139,7 @@ class TablePreview extends Component {
   }
 
   stopFetch() {
-    window.stop()
+    window.stop();
   }
 
   fetchData(isIncremental, isFiltered) {
