@@ -93,10 +93,10 @@ class TablePreview extends Component {
             </Button> :
             <Button
               className="fetch-btn"
-              disabled
-              bsStyle="success"
+              onClick={this.stopFetch}
+              bsStyle="danger"
             >
-              Fetching Table Data...
+              Stop Fetching
             </Button>
         }
         {
@@ -140,6 +140,10 @@ class TablePreview extends Component {
 
   filteredFetch() {
     this.fetchData(false, true);
+  }
+
+  stopFetch() {
+    window.stop();
   }
 
   fetchData(isIncremental, isFiltered) {
